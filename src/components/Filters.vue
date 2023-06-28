@@ -144,7 +144,10 @@ watch([hours], () => {
               </v-col>
 
               <v-col cols="auto">
-                <v-btn density="default" color="green-lighten-3">
+                <v-btn
+                  density="default"
+                  color="green-lighten-3"
+                  @click="$router.push({ name: 'form' })">
                   Crear un registro
                 </v-btn>
               </v-col>

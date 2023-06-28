@@ -101,78 +101,93 @@ const submit = async () => {
 </script>
 
 <template>
-  <v-form ref="formRef" @submit.prevent="submit">
-    <v-container>
-      <VRow>
-        <VCol>
-          <label style="font-size: 300%">Formulario</label>
-        </VCol>
-        <VCol>
-          <label style="font-size: 200%; direction: rtl">Consecutivo</label>
-        </VCol>
-      </VRow>
+  <VCard color="cyan-lighten-5">
+    <v-form ref="formRef" @submit.prevent="submit">
+      <v-container>
+        <VRow>
+          <VCol>
+            <label style="font-size: 300%">Formulario</label>
+          </VCol>
+          <VCol>
+            <label style="font-size: 200%; direction: rtl">Consecutivo</label>
+          </VCol>
+        </VRow>
 
-      <v-row>
-        <v-col cols="12" md="6">
-          <v-text-field
-            v-model="userValues.activityName"
-            :rules="[rules.required]"
-            label="NOMBRE ACTIVIDAD *"
-            required />
+        <v-row>
+          <v-col cols="12" md="6">
+            <v-text-field
+              v-model="userValues.activityName"
+              :rules="[rules.required]"
+              label="NOMBRE ACTIVIDAD *"
+              required />
 
-          <v-text-field
-            v-model="userValues.startTime"
-            :rules="[rules.required]"
-            label="HORA INICIO *"
-            type="time"
-            required />
+            <v-text-field
+              v-model="userValues.startTime"
+              :rules="[rules.required]"
+              label="HORA INICIO *"
+              type="time"
+              required />
 
-          <v-select
-            v-model="userValues.culturalRightId"
-            label="Derechos culturales *"
-            :rules="[rules.required]"
-            :items="selectCulturalRights"
-            required />
+            <v-select
+              v-model="userValues.culturalRightId"
+              label="Derechos culturales *"
+              :rules="[rules.required]"
+              :items="selectCulturalRights"
+              required />
 
-          <v-select
-            v-model="userValues.expertiseId"
-            label="EXPERTICIA *"
-            :items="selectExpertises"
-            :rules="[rules.required]"
-            required />
-        </v-col>
+            <v-select
+              v-model="userValues.expertiseId"
+              label="EXPERTICIA *"
+              :items="selectExpertises"
+              :rules="[rules.required]"
+              required />
+          </v-col>
 
-        <v-col cols="12" md="6">
-          <v-text-field
-            v-model="userValues.activityDate"
-            :rules="[rules.required]"
-            label="FECHA *"
-            type="date"
-            required />
+          <v-col cols="12" md="6">
+            <v-text-field
+              v-model="userValues.activityDate"
+              :rules="[rules.required]"
+              label="FECHA *"
+              type="date"
+              required />
 
-          <v-text-field
-            v-model="userValues.finalHour"
-            :rules="[rules.required, rules.validateFinalHour]"
-            label="HORA FINAL *"
-            type="time"
-            required />
+            <v-text-field
+              v-model="userValues.finalHour"
+              :rules="[rules.required, rules.validateFinalHour]"
+              label="HORA FINAL *"
+              type="time"
+              required />
 
-          <v-select
-            v-model="userValues.nacId"
-            label="NAC *"
-            :items="selectNacs"
-            :rules="[rules.required]"
-            required />
+            <v-select
+              v-model="userValues.nacId"
+              label="NAC *"
+              :items="selectNacs"
+              :rules="[rules.required]"
+              required />
 
-          <VRow>
-            <VCol cols="auto">
-              <v-btn color="cyan-lighten-1" block size="x-large" type="submit">
-                Accept
-              </v-btn>
-            </VCol>
-          </VRow>
-        </v-col>
-      </v-row>
-    </v-container>
-  </v-form>
+            <VRow>
+              <VCol cols="auto">
+                <v-btn
+                  color="cyan-lighten-1"
+                  block
+                  size="x-large"
+                  type="submit">
+                  Accept
+                </v-btn>
+              </VCol>
+              <VCol cols="auto">
+                <v-btn
+                  color="green-lighten-3"
+                  block
+                  size="x-large"
+                  @click="$router.push({ name: 'list' })">
+                  List
+                </v-btn>
+              </VCol>
+            </VRow>
+          </v-col>
+        </v-row>
+      </v-container>
+    </v-form>
+  </VCard>
 </template>
