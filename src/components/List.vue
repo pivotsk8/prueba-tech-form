@@ -6,14 +6,13 @@ import { storeToRefs } from 'pinia';
 const store = useStore();
 const { headers, users } = storeToRefs(store);
 </script>
+
 <template>
   <v-card class="mx-auto my-12" max-width="100%" color="cyan-lighten-1">
-    <v-card-title>Tabla de postres</v-card-title>
+    <v-card-title>Tabla Usuarios</v-card-title>
 
     <v-card class="mx-auto my-12" max-width="98%">
-     
-          <Filters />
-     
+      <Filters />
     </v-card>
 
     <v-card-text>
