@@ -1,10 +1,13 @@
 <script setup>
+import { ref } from 'vue';
 import Filters from '../components/Filters.vue';
 import { useStore } from '../stores/store';
 import { storeToRefs } from 'pinia';
 
 const store = useStore();
 const { headers, users } = storeToRefs(store);
+const newUsers = ref([]);
+newUsers.value = users.value.map(({ _id, ...rest }) => rest);
 </script>
 
 <template>
@@ -25,7 +28,7 @@ const { headers, users } = storeToRefs(store);
           </tr>
         </thead>
         <tbody>
-          <tr v-for="item in users" :key="item.name">
+          <tr v-for="item in newUsers" :key="item.name">
             <td v-for="(value, key) in item" :key="key">{{ value }}</td>
           </tr>
         </tbody>
